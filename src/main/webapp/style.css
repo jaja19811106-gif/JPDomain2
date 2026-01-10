@@ -1,0 +1,17 @@
+/* 左メニューに戻す */
+.sidebar {
+    width: 250px;
+    background: #f0f0f0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0 !important;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+/* メインコンテンツは左メニューを避ける */
+.content {
+    margin-left: 270px;
+    padding: 20px;
+}

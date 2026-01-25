@@ -1,0 +1,399 @@
+src/main/java/dao/BaseDao.java:11:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: This abstract class does not have any abstract methods
+src/main/java/dao/BaseDao.java:11:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/dao/BaseDao.java:11:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dao/BaseDao.java:13:	CommentRequired:	CommentRequired: Protected method constructor comments are required
+src/main/java/dao/BaseDao.java:18:	CommentRequired:	CommentRequired: Protected method constructor comments are required
+src/main/java/dao/BaseDao.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'sql' is not assigned and could be declared final
+src/main/java/dao/BaseDao.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'setter' is not assigned and could be declared final
+src/main/java/dao/BaseDao.java:21:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'mapper' is not assigned and could be declared final
+src/main/java/dao/BaseDao.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'リスト' could be declared final
+src/main/java/dao/BaseDao.java:27:	ShortVariable:	ShortVariable: Avoid variables with short names like ps
+src/main/java/dao/BaseDao.java:33:	ShortVariable:	ShortVariable: Avoid variables with short names like rs
+src/main/java/dao/BaseDao.java:43:	CommentRequired:	CommentRequired: Protected method constructor comments are required
+src/main/java/dao/BaseDao.java:44:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'sql' is not assigned and could be declared final
+src/main/java/dao/BaseDao.java:45:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'setter' is not assigned and could be declared final
+src/main/java/dao/BaseDao.java:49:	ShortVariable:	ShortVariable: Avoid variables with short names like ps
+src/main/java/dao/BaseDao.java:61:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dao/BaseDao.java:62:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/BaseDao.java:62:	ShortVariable:	ShortVariable: Avoid variables with short names like ps
+src/main/java/dao/DBManager.java:10:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dao/DBManager.java:10:	UseUtilityClass:	UseUtilityClass: All methods are static. Consider adding a private no-args constructor to prevent instantiation.
+src/main/java/dao/DBManager.java:12:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dao/DBManager.java:12:	ShortVariable:	ShortVariable: Avoid variables with short names like ds
+src/main/java/dao/DBManager.java:16:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'ctx' could be declared final
+src/main/java/dao/DBManager.java:19:	AvoidThrowingRawExceptionTypes:	AvoidThrowingRawExceptionTypes: Avoid throwing raw exception type RuntimeException.
+src/main/java/dao/DBManager.java:23:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/DomainDao.java:9:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/dao/DomainDao.java:9:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dao/DomainDao.java:11:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'rs' is not assigned and could be declared final
+src/main/java/dao/DomainDao.java:11:	ShortVariable:	ShortVariable: Avoid variables with short names like rs
+src/main/java/dao/DomainDao.java:13:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/main/java/dao/DomainDao.java:22:	AvoidThrowingRawExceptionTypes:	AvoidThrowingRawExceptionTypes: Avoid throwing raw exception type RuntimeException.
+src/main/java/dao/DomainDao.java:26:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/DomainDao.java:26:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'dto' is not assigned and could be declared final
+src/main/java/dao/DomainDao.java:27:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sql' could be declared final
+src/main/java/dao/DomainDao.java:41:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/DomainDao.java:41:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'domainName' is not assigned and could be declared final
+src/main/java/dao/DomainDao.java:42:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sql' could be declared final
+src/main/java/dao/DomainDao.java:46:	LambdaCanBeMethodReference:	LambdaCanBeMethodReference: Lambda expression could be written as a method reference: `this::map`
+src/main/java/dao/DomainDao.java:50:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/DomainDao.java:50:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'dto' is not assigned and could be declared final
+src/main/java/dao/DomainDao.java:51:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sql' could be declared final
+src/main/java/dao/DomainDao.java:67:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/DomainDao.java:67:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/dao/DomainDao.java:67:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/dao/DomainDao.java:68:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sql' could be declared final
+src/main/java/dao/OrganizationDomainDao.java:6:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/dao/OrganizationDomainDao.java:6:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dao/OrganizationDomainDao.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dao/OrganizationDomainDao.java:9:	LongVariable:	LongVariable: Avoid excessively long variable names like SQL_COUNT_BY_CORP_AND_ATTR
+src/main/java/dao/OrganizationDomainDao.java:23:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'attributeType' is not assigned and could be declared final
+src/main/java/dao/OrganizationDomainDao.java:23:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'corporateNumber' is not assigned and could be declared final
+src/main/java/dao/OrganizationDomainDao.java:25:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'result' could be declared final
+src/main/java/dao/OrganizationDomainDao.java:35:	AvoidThrowingRawExceptionTypes:	AvoidThrowingRawExceptionTypes: Avoid throwing raw exception type RuntimeException.
+src/main/java/dao/ProviderAccountDao.java:11:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/dao/ProviderAccountDao.java:11:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dao/ProviderAccountDao.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/dao/ProviderAccountDao.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'loginId' is not assigned and could be declared final
+src/main/java/dao/ProviderAccountDao.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'password' is not assigned and could be declared final
+src/main/java/dao/ProviderAccountDao.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'providerNo' is not assigned and could be declared final
+src/main/java/dao/ProviderAccountDao.java:15:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sql' could be declared final
+src/main/java/dao/ProviderAccountDao.java:20:	ShortVariable:	ShortVariable: Avoid variables with short names like ps
+src/main/java/dao/ProviderAccountDao.java:23:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'hashed' could be declared final
+src/main/java/dao/ProviderAccountDao.java:29:	CloseResource:	CloseResource: Ensure that resources like this ResultSet object are closed after use
+src/main/java/dao/ProviderAccountDao.java:29:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'rs' could be declared final
+src/main/java/dao/ProviderAccountDao.java:29:	ShortVariable:	ShortVariable: Avoid variables with short names like rs
+src/main/java/dao/ProviderAccountDao.java:32:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/dao/ProviderAccountDao.java:40:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/dto/DomainDto.java:3:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/dto/DomainDto.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/dto/DomainDto.java:3:	DataClass:	DataClass: The class 'DomainDto' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=12, WMC=12)
+src/main/java/dto/DomainDto.java:4:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dto/DomainDto.java:4:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/dto/DomainDto.java:5:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dto/DomainDto.java:6:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dto/DomainDto.java:7:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dto/DomainDto.java:8:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dto/DomainDto.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/dto/DomainDto.java:16:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/dto/DomainDto.java:16:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/dto/DomainDto.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'domainName' is not assigned and could be declared final
+src/main/java/dto/DomainDto.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'registrant' is not assigned and could be declared final
+src/main/java/dto/DomainDto.java:40:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ns1' is not assigned and could be declared final
+src/main/java/dto/DomainDto.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ns2' is not assigned and could be declared final
+src/main/java/dto/DomainDto.java:56:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'period' is not assigned and could be declared final
+src/main/java/epp/EPPClient.java:11:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/epp/EPPClient.java:11:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/epp/EPPClient.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/epp/EPPClient.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/epp/EPPClient.java:15:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/epp/EPPClient.java:17:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClient.java:17:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ホスト' is not assigned and could be declared final
+src/main/java/epp/EPPClient.java:17:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ポート' is not assigned and could be declared final
+src/main/java/epp/EPPClient.java:17:	SignatureDeclareThrowsException:	SignatureDeclareThrowsException: A method/constructor should not explicitly throw java.lang.Exception
+src/main/java/epp/EPPClient.java:18:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'factory' could be declared final
+src/main/java/epp/EPPClient.java:28:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClient.java:28:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'clID' is not assigned and could be declared final
+src/main/java/epp/EPPClient.java:28:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'password' is not assigned and could be declared final
+src/main/java/epp/EPPClient.java:28:	SignatureDeclareThrowsException:	SignatureDeclareThrowsException: A method/constructor should not explicitly throw java.lang.Exception
+src/main/java/epp/EPPClient.java:29:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'xml' could be declared final
+src/main/java/epp/EPPClient.java:44:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClient.java:44:	SignatureDeclareThrowsException:	SignatureDeclareThrowsException: A method/constructor should not explicitly throw java.lang.Exception
+src/main/java/epp/EPPClient.java:45:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'xml' could be declared final
+src/main/java/epp/EPPClient.java:57:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClient.java:57:	SignatureDeclareThrowsException:	SignatureDeclareThrowsException: A method/constructor should not explicitly throw java.lang.Exception
+src/main/java/epp/EPPClient.java:61:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClient.java:61:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'xml' is not assigned and could be declared final
+src/main/java/epp/EPPClient.java:61:	SignatureDeclareThrowsException:	SignatureDeclareThrowsException: A method/constructor should not explicitly throw java.lang.Exception
+src/main/java/epp/EPPClient.java:62:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'データ' could be declared final
+src/main/java/epp/EPPClient.java:63:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'len' could be declared final
+src/main/java/epp/EPPClient.java:74:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClient.java:74:	SignatureDeclareThrowsException:	SignatureDeclareThrowsException: A method/constructor should not explicitly throw java.lang.Exception
+src/main/java/epp/EPPClient.java:75:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b1' could be declared final
+src/main/java/epp/EPPClient.java:75:	ShortVariable:	ShortVariable: Avoid variables with short names like b1
+src/main/java/epp/EPPClient.java:76:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b2' could be declared final
+src/main/java/epp/EPPClient.java:76:	ShortVariable:	ShortVariable: Avoid variables with short names like b2
+src/main/java/epp/EPPClient.java:77:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b3' could be declared final
+src/main/java/epp/EPPClient.java:77:	ShortVariable:	ShortVariable: Avoid variables with short names like b3
+src/main/java/epp/EPPClient.java:78:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b4' could be declared final
+src/main/java/epp/EPPClient.java:78:	ShortVariable:	ShortVariable: Avoid variables with short names like b4
+src/main/java/epp/EPPClient.java:80:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'サイズ' could be declared final
+src/main/java/epp/EPPClient.java:85:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'buf' could be declared final
+src/main/java/epp/EPPClientMock.java:12:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/epp/EPPClientMock.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/epp/EPPClientMock.java:14:	FieldNamingConventions:	FieldNamingConventions: The constant name 'ログ' doesn't match '[A-Z][A-Z_0-9]*'
+src/main/java/epp/EPPClientMock.java:16:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/epp/EPPClientMock.java:16:	UseConcurrentHashMap:	UseConcurrentHashMap: If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+src/main/java/epp/EPPClientMock.java:18:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClientMock.java:24:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/EPPClientMock.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'xml' is not assigned and could be declared final
+src/main/java/epp/EPPClientMock.java:28:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'pretty' could be declared final
+src/main/java/epp/EPPClientMock.java:32:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'コマンド' could be declared final
+src/main/java/epp/EPPClientMock.java:34:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'handler' could be declared final
+src/main/java/epp/EPPClientMock.java:37:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/epp/EPPClientMock.java:43:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'xml' is not assigned and could be declared final
+src/main/java/epp/EPPClientMock.java:44:	ControlStatementBraces:	ControlStatementBraces: This statement should have braces
+src/main/java/epp/EPPClientMock.java:44:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/epp/EPPClientMock.java:45:	ControlStatementBraces:	ControlStatementBraces: This statement should have braces
+src/main/java/epp/EPPClientMock.java:45:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/epp/EPPClientMock.java:46:	ControlStatementBraces:	ControlStatementBraces: This statement should have braces
+src/main/java/epp/EPPClientMock.java:46:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/epp/EPPClientMock.java:47:	ControlStatementBraces:	ControlStatementBraces: This statement should have braces
+src/main/java/epp/EPPClientMock.java:47:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/epp/EPPClientMock.java:51:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'メッセージ' is not assigned and could be declared final
+src/main/java/epp/EPPHandler.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/epp/EPPHandler.java:3:	ImplicitFunctionalInterface:	ImplicitFunctionalInterface: Annotate this interface with @FunctionalInterface or with @SuppressWarnings("PMD.ImplicitFunctionalInterface") to clarify your intent.
+src/main/java/epp/EPPHandler.java:4:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/epp/handlers/CreateHandler.java:5:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/epp/handlers/CreateHandler.java:5:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/epp/handlers/InfoHandler.java:5:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/epp/handlers/InfoHandler.java:5:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/filter/EncodingFilter.java:13:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/filter/EncodingFilter.java:13:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/filter/EncodingFilter.java:16:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'chain' is not assigned and could be declared final
+src/main/java/filter/EncodingFilter.java:16:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/filter/EncodingFilter.java:16:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/filter/LoginFilter.java:18:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/filter/LoginFilter.java:18:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/filter/LoginFilter.java:21:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'chain' is not assigned and could be declared final
+src/main/java/filter/LoginFilter.java:21:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/filter/LoginFilter.java:21:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/filter/LoginFilter.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'req' could be declared final
+src/main/java/filter/LoginFilter.java:25:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'res' could be declared final
+src/main/java/filter/LoginFilter.java:27:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'パス' could be declared final
+src/main/java/filter/LoginFilter.java:28:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'session' could be declared final
+src/main/java/filter/LoginFilter.java:31:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
+src/main/java/filter/LoginFilter.java:31:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
+src/main/java/filter/LoginFilter.java:33:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/filter/LoginFilter.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'account' could be declared final
+src/main/java/model/ProviderAccount.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/model/ProviderAccount.java:3:	DataClass:	DataClass: The class 'ProviderAccount' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=6, WMC=8)
+src/main/java/model/ProviderAccount.java:5:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/model/ProviderAccount.java:6:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/model/ProviderAccount.java:7:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/model/ProviderAccount.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/model/ProviderAccount.java:9:	UncommentedEmptyConstructor:	UncommentedEmptyConstructor: Document empty constructor
+src/main/java/model/ProviderAccount.java:12:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/model/ProviderAccount.java:12:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'loginId' is not assigned and could be declared final
+src/main/java/model/ProviderAccount.java:12:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'providerNo' is not assigned and could be declared final
+src/main/java/model/ProviderAccount.java:12:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter '名前' is not assigned and could be declared final
+src/main/java/model/ProviderAccount.java:22:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'providerNo' is not assigned and could be declared final
+src/main/java/model/ProviderAccount.java:30:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'loginId' is not assigned and could be declared final
+src/main/java/model/ProviderAccount.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter '名前' is not assigned and could be declared final
+src/main/java/servlet/DomainDeleteServlet.java:15:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainDeleteServlet.java:15:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainDeleteServlet.java:15:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainDeleteServlet.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainDeleteServlet.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainDeleteServlet.java:21:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'idStr' could be declared final
+src/main/java/servlet/DomainDeleteServlet.java:22:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'id' could be declared final
+src/main/java/servlet/DomainDeleteServlet.java:22:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/servlet/DomainDeleteServlet.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/DomainDeleteServlet.java:29:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/servlet/DomainEditServlet.java:16:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainEditServlet.java:16:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainEditServlet.java:16:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainEditServlet.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainEditServlet.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainEditServlet.java:18:	MissingOverride:	MissingOverride: The method 'doGet(HttpServletRequest, HttpServletResponse)' is missing an @Override annotation.
+src/main/java/servlet/DomainEditServlet.java:21:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'domainName' could be declared final
+src/main/java/servlet/DomainEditServlet.java:23:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/DomainEditServlet.java:29:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/servlet/DomainEditServlet.java:36:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainEditServlet.java:36:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainEditServlet.java:36:	MissingOverride:	MissingOverride: The method 'doPost(HttpServletRequest, HttpServletResponse)' is missing an @Override annotation.
+src/main/java/servlet/DomainEditServlet.java:39:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/main/java/servlet/DomainInfoServlet.java:17:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainInfoServlet.java:17:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainInfoServlet.java:17:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainInfoServlet.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainInfoServlet.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainInfoServlet.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainInfoServlet.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainInfoServlet.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/DomainInfoServlet.java:52:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/servlet/DomainRegisterCheckServlet.java:15:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainRegisterCheckServlet.java:15:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainRegisterCheckServlet.java:15:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainRegisterCheckServlet.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'req' is not assigned and could be declared final
+src/main/java/servlet/DomainRegisterCheckServlet.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'resp' is not assigned and could be declared final
+src/main/java/servlet/DomainRegisterCheckServlet.java:21:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'corporateNumber' could be declared final
+src/main/java/servlet/DomainRegisterCheckServlet.java:22:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'attributeType' could be declared final
+src/main/java/servlet/DomainRegisterCheckServlet.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/DomainRegisterCheckServlet.java:27:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'exists' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:21:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainRegisterServlet.java:21:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainRegisterServlet.java:21:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainRegisterServlet.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/servlet/DomainRegisterServlet.java:23:	FieldNamingConventions:	FieldNamingConventions: The constant name 'ログ' doesn't match '[A-Z][A-Z_0-9]*'
+src/main/java/servlet/DomainRegisterServlet.java:26:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:26:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:35:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'domain' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:36:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'period' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'ns1' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:38:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'ns2' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:39:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'registrant' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:41:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:42:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:55:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'xml' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:77:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'client' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:78:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'res' could be declared final
+src/main/java/servlet/DomainRegisterServlet.java:80:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching 例外 in try-catch block
+src/main/java/servlet/DomainUpdateConfirmServlet.java:12:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainUpdateConfirmServlet.java:12:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainUpdateConfirmServlet.java:12:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainUpdateConfirmServlet.java:15:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:15:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:21:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'id' could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:21:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/servlet/DomainUpdateConfirmServlet.java:22:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'domainName' could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:23:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'registrant' could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'ns1' could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:25:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'ns2' could be declared final
+src/main/java/servlet/DomainUpdateConfirmServlet.java:26:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'period' could be declared final
+src/main/java/servlet/DomainUpdateServlet.java:16:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/DomainUpdateServlet.java:16:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/DomainUpdateServlet.java:16:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/DomainUpdateServlet.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/DomainUpdateServlet.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/DomainUpdateServlet.java:22:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/main/java/servlet/DomainUpdateServlet.java:30:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/DomainUpdateServlet.java:35:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/servlet/LoginServlet.java:16:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/LoginServlet.java:16:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/LoginServlet.java:16:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/LoginServlet.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/LoginServlet.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/LoginServlet.java:26:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/LoginServlet.java:26:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/LoginServlet.java:31:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'providerNo' could be declared final
+src/main/java/servlet/LoginServlet.java:32:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'loginId' could be declared final
+src/main/java/servlet/LoginServlet.java:33:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'password' could be declared final
+src/main/java/servlet/LoginServlet.java:35:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dao' could be declared final
+src/main/java/servlet/LoginServlet.java:36:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'account' could be declared final
+src/main/java/servlet/LoginServlet.java:40:	LawOfDemeter:	LawOfDemeter: Call to `getSession` on foreign value `request` (degree 1)
+src/main/java/servlet/LoginServlet.java:40:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'session' could be declared final
+src/main/java/servlet/LogoutServlet.java:13:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/servlet/LogoutServlet.java:13:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/servlet/LogoutServlet.java:13:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/servlet/LogoutServlet.java:15:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/servlet/LogoutServlet.java:15:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'response' is not assigned and could be declared final
+src/main/java/servlet/LogoutServlet.java:18:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'session' could be declared final
+src/main/java/util/DomainMapper.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/util/DomainMapper.java:7:	UseUtilityClass:	UseUtilityClass: All methods are static. Consider adding a private no-args constructor to prevent instantiation.
+src/main/java/util/DomainMapper.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/util/DomainMapper.java:9:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/util/DomainMapper.java:11:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/main/java/util/DomainMapper.java:14:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'id' could be declared final
+src/main/java/util/DomainMapper.java:14:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/util/DomainMapper.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'period' could be declared final
+src/main/java/util/PasswordUtil.java:10:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/util/PasswordUtil.java:10:	UseUtilityClass:	UseUtilityClass: All methods are static. Consider adding a private no-args constructor to prevent instantiation.
+src/main/java/util/PasswordUtil.java:15:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/util/PasswordUtil.java:15:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'password' is not assigned and could be declared final
+src/main/java/util/PasswordUtil.java:17:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'md' could be declared final
+src/main/java/util/PasswordUtil.java:17:	ShortVariable:	ShortVariable: Avoid variables with short names like md
+src/main/java/util/PasswordUtil.java:18:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'バイト' could be declared final
+src/main/java/util/PasswordUtil.java:20:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sb' could be declared final
+src/main/java/util/PasswordUtil.java:20:	ShortVariable:	ShortVariable: Avoid variables with short names like sb
+src/main/java/util/PasswordUtil.java:21:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b' could be declared final
+src/main/java/util/PasswordUtil.java:27:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching 例外 in try-catch block
+src/main/java/util/PasswordUtil.java:28:	AvoidThrowingRawExceptionTypes:	AvoidThrowingRawExceptionTypes: Avoid throwing raw exception type RuntimeException.
+src/main/java/util/PasswordUtil.java:36:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/util/PasswordUtil.java:36:	FieldDeclarationsShouldBeAtStartOfClass:	FieldDeclarationsShouldBeAtStartOfClass: Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/main/java/util/PasswordUtil.java:36:	UseUnderscoresInNumericLiterals:	UseUnderscoresInNumericLiterals: Number 20000 should separate every third digit with an underscore
+src/main/java/util/PasswordUtil.java:37:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/util/PasswordUtil.java:37:	FieldDeclarationsShouldBeAtStartOfClass:	FieldDeclarationsShouldBeAtStartOfClass: Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/main/java/util/PasswordUtil.java:40:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/util/PasswordUtil.java:41:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'random' could be declared final
+src/main/java/util/PasswordUtil.java:42:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'salt' could be declared final
+src/main/java/util/PasswordUtil.java:48:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/util/PasswordUtil.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'password' is not assigned and could be declared final
+src/main/java/util/PasswordUtil.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'salt' is not assigned and could be declared final
+src/main/java/util/PasswordUtil.java:50:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'spec' could be declared final
+src/main/java/util/PasswordUtil.java:57:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'factory' could be declared final
+src/main/java/util/PasswordUtil.java:58:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'hash' could be declared final
+src/main/java/util/PasswordUtil.java:62:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching 例外 in try-catch block
+src/main/java/util/PasswordUtil.java:63:	AvoidThrowingRawExceptionTypes:	AvoidThrowingRawExceptionTypes: Avoid throwing raw exception type RuntimeException.
+src/main/java/util/PasswordUtil.java:71:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'バイト' is not assigned and could be declared final
+src/main/java/util/PasswordUtil.java:72:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'sb' could be declared final
+src/main/java/util/PasswordUtil.java:72:	ShortVariable:	ShortVariable: Avoid variables with short names like sb
+src/main/java/util/PasswordUtil.java:73:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b' could be declared final
+src/main/java/util/PasswordUtil.java:79:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'hex' is not assigned and could be declared final
+src/main/java/util/PasswordUtil.java:80:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'len' could be declared final
+src/main/java/util/PasswordUtil.java:81:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'データ' could be declared final
+src/test/java/selenium/LoginPageTest.java:17:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/selenium/LoginPageTest.java:17:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/selenium/LoginPageTest.java:17:	JUnit5TestShouldBePackagePrivate:	JUnit5TestShouldBePackagePrivate: JUnit 5 tests should be package-private.
+src/test/java/selenium/LoginPageTest.java:19:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/selenium/LoginPageTest.java:23:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'オプション' could be declared final
+src/test/java/selenium/LoginPageTest.java:30:	EmptyControlStatement:	EmptyControlStatement: Empty if statement
+src/test/java/selenium/LoginPageTest.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable '処理中' could be declared final
+src/test/java/selenium/LoginPageTest.java:49:	UnitTestAssertionsShouldIncludeMessage:	UnitTestAssertionsShouldIncludeMessage: Unit test assertions should include a message
+src/test/java/selenium/MenuPageTest.java:22:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/selenium/MenuPageTest.java:22:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/selenium/MenuPageTest.java:22:	JUnit5TestShouldBePackagePrivate:	JUnit5TestShouldBePackagePrivate: JUnit 5 tests should be package-private.
+src/test/java/selenium/MenuPageTest.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/selenium/MenuPageTest.java:28:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'オプション' could be declared final
+src/test/java/selenium/MenuPageTest.java:31:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'prefs' could be declared final
+src/test/java/selenium/MenuPageTest.java:31:	UseConcurrentHashMap:	UseConcurrentHashMap: If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+src/test/java/selenium/MenuPageTest.java:61:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "http://localhost:8080/JPDomain2/login" appears 4 times in this file; the first occurrence is on line 61
+src/test/java/selenium/MenuPageTest.java:64:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'login' could be declared final
+src/test/java/selenium/MenuPageTest.java:65:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'menu' could be declared final
+src/test/java/selenium/MenuPageTest.java:66:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "001" appears 4 times in this file; the first occurrence is on line 66
+src/test/java/selenium/MenuPageTest.java:67:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "テスト" appears 4 times in this file; the first occurrence is on line 67
+src/test/java/selenium/MenuPageTest.java:68:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "合格" appears 4 times in this file; the first occurrence is on line 68
+src/test/java/selenium/MenuPageTest.java:72:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable '処理中' could be declared final
+src/test/java/selenium/MenuPageTest.java:76:	UnitTestAssertionsShouldIncludeMessage:	UnitTestAssertionsShouldIncludeMessage: Unit test assertions should include a message
+src/test/java/selenium/MenuPageTest.java:85:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'login' could be declared final
+src/test/java/selenium/MenuPageTest.java:86:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'menu' could be declared final
+src/test/java/selenium/MenuPageTest.java:96:	UnitTestAssertionsShouldIncludeMessage:	UnitTestAssertionsShouldIncludeMessage: Unit test assertions should include a message
+src/test/java/selenium/MenuPageTest.java:105:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'login' could be declared final
+src/test/java/selenium/MenuPageTest.java:106:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'menu' could be declared final
+src/test/java/selenium/MenuPageTest.java:116:	UnitTestAssertionsShouldIncludeMessage:	UnitTestAssertionsShouldIncludeMessage: Unit test assertions should include a message
+src/test/java/selenium/MenuPageTest.java:123:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'menu' could be declared final
+src/test/java/selenium/MenuPageTest.java:131:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'register' could be declared final
+src/test/java/selenium/MenuPageTest.java:132:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/test/java/selenium/MenuPageTest.java:144:	UnitTestAssertionsShouldIncludeMessage:	UnitTestAssertionsShouldIncludeMessage: Unit test assertions should include a message
+src/test/java/selenium/page/DomainRegisterPage.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:9:	ImmutableField:	ImmutableField: Field 'driver' may be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:11:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'driver' is not assigned and could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:16:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:21:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:21:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter '名前' is not assigned and could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:27:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'registrant' is not assigned and could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:33:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:33:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter '値' is not assigned and could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:34:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'select' could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:40:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:40:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ns1' is not assigned and could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:46:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/DomainRegisterPage.java:46:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ns2' is not assigned and could be declared final
+src/test/java/selenium/page/DomainRegisterPage.java:52:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/LoginPage.java:6:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/selenium/page/LoginPage.java:8:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/selenium/page/LoginPage.java:8:	ImmutableField:	ImmutableField: Field 'driver' may be declared final
+src/test/java/selenium/page/LoginPage.java:10:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/LoginPage.java:10:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'driver' is not assigned and could be declared final
+src/test/java/selenium/page/LoginPage.java:14:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/LoginPage.java:14:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'いいえ' is not assigned and could be declared final
+src/test/java/selenium/page/LoginPage.java:14:	ShortVariable:	ShortVariable: Avoid variables with short names like いいえ
+src/test/java/selenium/page/LoginPage.java:19:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/LoginPage.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/test/java/selenium/page/LoginPage.java:19:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/test/java/selenium/page/LoginPage.java:24:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/LoginPage.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter '合格' is not assigned and could be declared final
+src/test/java/selenium/page/LoginPage.java:29:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/MenuPage.java:6:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/selenium/page/MenuPage.java:8:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/selenium/page/MenuPage.java:8:	ImmutableField:	ImmutableField: Field 'driver' may be declared final
+src/test/java/selenium/page/MenuPage.java:10:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/MenuPage.java:10:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'driver' is not assigned and could be declared final
+src/test/java/selenium/page/MenuPage.java:14:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/MenuPage.java:18:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/selenium/page/MenuPage.java:23:	CommentRequired:	CommentRequired: Public method and constructor comments are required

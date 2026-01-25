@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <!-- ===== Console 出力 ===== -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
         </encoder>
     </appender>
 
+    <!-- ===== File 出力 ===== -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${PROJECT_LOC}/logs/app.log</file>
+	    <file>${catalina.base}/logs/app.log</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${catalina.base}/logs/app.%d{yyyy-MM-dd}.log</fileNamePattern>
@@ -20,7 +22,33 @@
         </encoder>
     </appender>
 
-    <root level="debug">
+    <!-- ===== log4jdbc の SQL ログ設定 ===== -->
+    <!-- 実際に実行された SQL（値入り） -->
+    <logger name="jdbc.sqlonly" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- SQL + 実行時間 -->
+    <logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- JDBC の実行ログ（Connection, PreparedStatement など） -->
+    <logger name="jdbc.audit" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- ResultSet の中身 -->
+    <logger name="jdbc.resultset" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- ===== Root Logger ===== -->
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
     </root>

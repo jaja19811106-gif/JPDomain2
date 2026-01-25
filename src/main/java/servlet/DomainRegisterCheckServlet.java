@@ -30,7 +30,7 @@ public class DomainRegisterCheckServlet extends HttpServlet {
                 req.setAttribute("errorMessage",
                         "この組織はすでに " + attributeType + " を保持しています。");
 
-                req.getRequestDispatcher("/domainRegister.jsp").forward(req, resp);
+                req.getRequestDispatcher("/domainRegisterInput.jsp").forward(req, resp);
                 return;
             }
 

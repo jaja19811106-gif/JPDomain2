@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'war'
-    id 'jacoco'
 }
 
 java {
@@ -19,22 +18,30 @@ repositories {
 dependencies {
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    // ★ JUnit を BOM で統一
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     implementation 'javax.servlet:jstl:1.2'
     implementation 'org.slf4j:slf4j-api:2.0.9'
-	implementation 'ch.qos.logback:logback-classic:1.4.11'
-	implementation 'org.slf4j:slf4j-api:2.0.9'
-	implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+
+    // ★ log4jdbc（SLF4J/logback と組み合わせて使う）
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+    // ★ Log4j2 の存在チェックを通過させる（api だけでは不十分）
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'   // ← これが必須！
 
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.38.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.13.4'
 
-    runtimeOnly 'org.postgresql:postgresql:42.7.3'
+    implementation 'org.postgresql:postgresql:42.7.3'
 }
 
 test {
     useJUnitPlatform()
+    systemProperty "log4jdbc.spylogdelegator.name", "net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator"
 }
 
 sourceSets {
@@ -43,11 +50,15 @@ sourceSets {
             srcDir 'src/main/resources'
         }
     }
+    test {
+        resources {
+            srcDir 'src/main/resources'
+            srcDir 'src/test/resources'
+        }
+    }
 }
 
-jacocoTestReport {
-    reports {
-        html.required = true
-        xml.required = true
-    }
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    filteringCharset = 'UTF-8'
 }

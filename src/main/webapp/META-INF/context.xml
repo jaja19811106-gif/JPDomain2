@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-
-    <Resource
-        name="jdbc/testdb"
-        auth="Container"
-        type="javax.sql.DataSource"
-        maxTotal="20"
-        maxIdle="10"
-        maxWaitMillis="10000"
-        username="postgres"
-        password="postgres"
-        driverClassName="org.postgresql.Driver"
-        url="jdbc:postgresql://localhost:5432/testdb"
-    />
-
+    <Resource name="jdbc/testdb"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="20"
+              maxIdle="10"
+              driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+              url="jdbc:log4jdbc:postgresql://localhost:5432/testdb"
+              username="postgres"
+              password="postgres" />
 </Context>

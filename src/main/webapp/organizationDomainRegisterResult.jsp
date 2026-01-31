@@ -17,18 +17,30 @@
     <table>
         <tr>
             <td>法人番号（13桁）</td>
-            <td>${param.corporateNumber}</td>
+            <td>${domain.corporateNumber}</td>
         </tr>
 
         <tr>
             <td>属性型</td>
-            <td>${param.attributeType}</td>
+            <td>${domain.attributeType}</td>
         </tr>
 
         <tr>
             <td>登録したドメイン名</td>
-            <td>${param.domainName}</td>
+            <td>${domain.domainName}</td>
         </tr>
+
+        <!-- ▼ 追加部分 ▼ -->
+        <tr>
+            <td>認証コード</td>
+            <td>${domain.authCode}</td>
+        </tr>
+
+        <tr>
+            <td>ステータス</td>
+            <td>${domain.status}</td>
+        </tr>
+        <!-- ▲ 追加部分 ▲ -->
     </table>
 
     <br>

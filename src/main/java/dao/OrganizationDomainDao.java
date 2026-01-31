@@ -47,9 +47,10 @@ public class OrganizationDomainDao extends BaseDao {
     private static final String SQL_INSERT =
             "INSERT INTO organization_domain " +
             "(corporate_number, domain_name, attribute_type, auth_code, status) " +
-            "VALUES (?, ?, ?, generate_auth_code(), 'ACTIVE')";
+            "VALUES (?, ?, ?, generate_auth_code(), 'ACTIVE') " +
+            "RETURNING id";
 
-    public void insert(OrganizationDomain domain) throws SQLException {
+    public int insert(OrganizationDomain domain) throws SQLException {
 
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement(SQL_INSERT)) {
@@ -58,8 +59,13 @@ public class OrganizationDomainDao extends BaseDao {
             ps.setString(2, domain.getDomainName());
             ps.setString(3, domain.getAttributeType());
 
-            ps.executeUpdate();
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("id");
+                }
+            }
         }
+        throw new SQLException("ID が取得できませんでした");
     }
 
     // ---------------------------------------------------------

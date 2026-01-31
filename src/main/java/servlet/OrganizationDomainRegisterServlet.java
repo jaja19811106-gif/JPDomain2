@@ -23,7 +23,6 @@ public class OrganizationDomainRegisterServlet extends HttpServlet {
         String attributeType   = req.getParameter("attributeType");
         String domainName      = req.getParameter("domainName");
 
-        // サーバー側バリデーション（必須）
         if (corporateNumber == null || corporateNumber.isEmpty()
                 || attributeType == null || attributeType.isEmpty()
                 || domainName == null || domainName.isEmpty()) {
@@ -36,15 +35,22 @@ public class OrganizationDomainRegisterServlet extends HttpServlet {
         OrganizationDomainDao dao = new OrganizationDomainDao();
 
         try {
+            // ① 登録
             OrganizationDomain domain = new OrganizationDomain();
             domain.setCorporateNumber(corporateNumber);
             domain.setAttributeType(attributeType);
             domain.setDomainName(domainName);
 
-            dao.insert(domain);
+            int newId = dao.insert(domain);
 
-            req.setAttribute("message", "登録が完了しました。");
-            req.getRequestDispatcher("/organizationDomainRegisterResult.jsp").forward(req, resp);
+            // ② 登録したデータを取得（auth_code と status を含む）
+            OrganizationDomain saved = dao.findById(newId);
+
+            // ③ JSP に渡す
+            req.setAttribute("domain", saved);
+
+            req.getRequestDispatcher("/organizationDomainRegisterResult.jsp")
+               .forward(req, resp);
 
         } catch (SQLException e) {
             throw new ServletException(e);

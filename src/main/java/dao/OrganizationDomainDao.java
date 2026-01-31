@@ -46,8 +46,8 @@ public class OrganizationDomainDao extends BaseDao {
     // ---------------------------------------------------------
     private static final String SQL_INSERT =
             "INSERT INTO organization_domain " +
-            "(corporate_number, domain_name, attribute_type) " +
-            "VALUES (?, ?, ?)";
+            "(corporate_number, domain_name, attribute_type, auth_code, status) " +
+            "VALUES (?, ?, ?, generate_auth_code(), 'ACTIVE')";
 
     public void insert(OrganizationDomain domain) throws SQLException {
 
@@ -69,7 +69,7 @@ public class OrganizationDomainDao extends BaseDao {
 
         List<OrganizationDomain> list = new ArrayList<>();
 
-        String sql = "SELECT id, corporate_number, domain_name, attribute_type " +
+        String sql = "SELECT id, corporate_number, domain_name, attribute_type, auth_code, status " +
                      "FROM organization_domain ORDER BY id";
 
         try (Connection con = getConnection();
@@ -82,6 +82,8 @@ public class OrganizationDomainDao extends BaseDao {
                 d.setCorporateNumber(rs.getString("corporate_number"));
                 d.setDomainName(rs.getString("domain_name"));
                 d.setAttributeType(rs.getString("attribute_type"));
+                d.setAuthCode(rs.getString("auth_code"));
+                d.setStatus(rs.getString("status"));
                 list.add(d);
             }
 
@@ -97,7 +99,7 @@ public class OrganizationDomainDao extends BaseDao {
     // ---------------------------------------------------------
     public OrganizationDomain findById(int id) {
 
-        String sql = "SELECT id, corporate_number, domain_name, attribute_type " +
+        String sql = "SELECT id, corporate_number, domain_name, attribute_type, auth_code, status " +
                      "FROM organization_domain WHERE id = ?";
 
         try (Connection con = getConnection();
@@ -112,6 +114,8 @@ public class OrganizationDomainDao extends BaseDao {
                     d.setCorporateNumber(rs.getString("corporate_number"));
                     d.setDomainName(rs.getString("domain_name"));
                     d.setAttributeType(rs.getString("attribute_type"));
+                    d.setAuthCode(rs.getString("auth_code"));
+                    d.setStatus(rs.getString("status"));
                     return d;
                 }
             }

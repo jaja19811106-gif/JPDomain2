@@ -6,7 +6,21 @@ public class OrganizationDomain {
     private String corporateNumber;
     private String domainName;
     private String attributeType;
-
+    public String getAuthCode() {
+		return authCode;
+	}
+	public void setAuthCode(String authCode) {
+		this.authCode = authCode;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	private String authCode;
+    private String status;
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

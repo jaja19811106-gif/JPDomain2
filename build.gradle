@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'war'
+    id 'jacoco'
 }
 
 java {
@@ -41,5 +42,12 @@ sourceSets {
         resources {
             srcDir 'src/main/resources'
         }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        html.required = true
+        xml.required = true
     }
 }

@@ -20,6 +20,11 @@
             <th>法人番号</th>
             <th>属性型</th>
             <th>ドメイン名</th>
+
+            <!-- ★ 表示列として追加 -->
+            <th>認証コード</th>
+            <th>ステータス</th>
+
             <th>操作</th>
         </tr>
 
@@ -29,14 +34,19 @@
                 <td>${d.corporateNumber}</td>
                 <td>${d.attributeType}</td>
                 <td>${d.domainName}</td>
+
+                <!-- ★ 表示列 -->
+                <td>${d.authCode}</td>
+                <td>${d.status}</td>
+
                 <td>
-                    <!-- 編集ボタン -->
+                    <!-- 編集ボタン：hidden は id のみ -->
                     <form action="domain2Edit" method="get" style="display:inline;">
                         <input type="hidden" name="id" value="${d.id}">
                         <button type="submit">編集</button>
                     </form>
 
-                    <!-- 削除ボタン（必要なら） -->
+                    <!-- 削除ボタン -->
                     <form action="domain2Delete" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="${d.id}">
                         <button type="submit"

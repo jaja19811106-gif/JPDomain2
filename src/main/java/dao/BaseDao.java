@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 public abstract class BaseDao {
 
-    protected Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         return DBManager.getConnection();
     }
 
@@ -39,7 +39,7 @@ public abstract class BaseDao {
         return list;
     }
 
-    // INSERT / UPDATE / DELETE 共通処理
+    // UPDATE 共通処理
     protected int executeUpdate(
             String sql,
             PreparedStatementSetter setter
@@ -56,7 +56,6 @@ public abstract class BaseDao {
         }
     }
 
-    // PreparedStatement に値をセットするための関数型インターフェース
     @FunctionalInterface
     protected interface PreparedStatementSetter {
         void set(PreparedStatement ps) throws SQLException;

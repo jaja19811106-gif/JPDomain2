@@ -10,9 +10,12 @@
 
     <form action="domain2UpdateCheck" method="post">
 
+        <!-- 更新に必要なのは ID だけ -->
         <input type="hidden" name="id" value="${domain.id}">
-
+        <input type="hidden" name="authCode" value="${domain.authCode}">
+        
         <table>
+
             <tr>
                 <td>法人番号</td>
                 <td>
@@ -41,6 +44,32 @@
                            value="${domain.domainName}" required>
                 </td>
             </tr>
+
+            <!-- ★ 認証コード（表示のみ） -->
+            <tr>
+                <td>認証コード</td>
+                <td>
+                    <span style="font-weight:bold;">
+                        ${domain.authCode}
+                    </span>
+                </td>
+            </tr>
+
+            <!-- ★ ステータス（動的生成） -->
+            <tr>
+                <td>ステータス</td>
+                <td>
+                    <select name="status">
+                        <c:forEach var="statusEnum" items="${statusList}">
+                            <option value="${statusEnum.code}"
+                                <c:if test="${domain.status == statusEnum.code}">selected</c:if>>
+                                ${statusEnum.name()}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+
         </table>
 
         <br>

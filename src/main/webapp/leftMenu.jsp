@@ -12,6 +12,9 @@
         <!-- ★ 新しい一覧画面へのリンク -->
         <li><a href="domain2List">ドメイン一覧（新）</a></li>
 
+        <!-- ★ 認証コード照会 -->
+        <li><a href="domainAuthCodeSearch">認証コード照会</a></li>
+
         <li><a href="domainInfo">Domain Info</a></li>
         <li><a href="logout">ログアウト</a></li>
     </ul>

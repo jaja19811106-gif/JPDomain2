@@ -13,16 +13,16 @@
 <c:if test="${not empty error}">
     <p style="color:red;">${error}</p>
 </c:if>
-<form action="login" method="post">
+<form action="login" method="post" autocomplete="off">
 
     <label>事業者番号：</label>
-    <input type="text" name="providerNo"><br><br>
+    <input type="text" name="providerNo" autocomplete="off"><br><br>
 
     <label>ユーザーID：</label>
-    <input type="text" name="userId"><br><br>
+    <input type="text" name="userId" autocomplete="username"><br><br>
 
     <label>パスワード：</label>
-    <input type="password" name="password"><br><br>
+    <input type="password" name="password" autocomplete="current-password"><br><br>
 
     <input type="submit" value="ログイン">
 </form>

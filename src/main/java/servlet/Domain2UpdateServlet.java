@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.EnumSet;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +16,16 @@ import util.AuthCodeUtil;
 
 @WebServlet("/domain2Update")
 public class Domain2UpdateServlet extends HttpServlet {
+    
+    // 認証コードが必要なステータス（遷移先）
+    private static final Set<OrganizationDomain.Status> AUTH_CODE_REQUIRED_STATUSES = 
+        EnumSet.of(
+            OrganizationDomain.Status.ACTIVE,
+            OrganizationDomain.Status.REGISTERED,
+            OrganizationDomain.Status.RESERVED,
+            OrganizationDomain.Status.PENDING_APPLICATION,
+            OrganizationDomain.Status.DOMAIN_ACTIVE
+        );
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -39,25 +51,25 @@ public class Domain2UpdateServlet extends HttpServlet {
         domain.setStatus(statusCode);
         
         try {
-            // ★ ACTIVE の場合
-            if (statusEnum == OrganizationDomain.Status.ACTIVE) {
+            // 認証コードが必要なステータス（遷移先）の場合
+            if (AUTH_CODE_REQUIRED_STATUSES.contains(statusEnum)) {
                 if (authCode != null && !authCode.isEmpty()) {
-                    // ACTIVE → ACTIVE（authCode あり）→ そのまま保持
+                    // 認証コードあり → そのまま保持
                     domain.setAuthCode(authCode);
                 } else {
-                    // ACTIVE → ACTIVE（authCode なし） or DELETED → ACTIVE
-                    // → 新規採番
+                    // 認証コードなし → 新規採番
                     String newCode = AuthCodeUtil.generateAuthCode();
                     domain.setAuthCode(newCode);
                     domain.setAuthCodeExpiresAt(null);
                 }
-            } else if (statusEnum == OrganizationDomain.Status.DELETED) {
-                // ★ DELETED のとき → 認証コードと有効期限をクリア
+            } 
+            // DELETED（遷移元）の場合 → 認証コードと有効期限をクリア
+            else if (statusEnum == OrganizationDomain.Status.DELETED) {
                 domain.setAuthCode(null);
                 domain.setAuthCodeExpiresAt(null);
             }
             
-            // ★ 更新実行（DAO は渡された値をそのまま更新するだけ）
+            // 更新実行
             OrganizationDomainDao dao = new OrganizationDomainDao();
             dao.update(domain);
             

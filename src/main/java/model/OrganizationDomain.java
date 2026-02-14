@@ -15,7 +15,15 @@ public class OrganizationDomain {
     // ステータスEnum（内部クラス）
     public enum Status {
         ACTIVE(1),
-        DELETED(2);
+        DELETED(2),
+        REGISTERED(3),           // 登録
+        RESERVED(4),             // 登録予約
+        PENDING_APPLICATION(5),  // 申請中
+        DOMAIN_ACTIVE(6),        // アクティブ（ドメイン）
+        TO_BE_SUSPENDED(7),      // サスペンド予定
+        SUSPENDED(8),            // サスペンド
+        TO_BE_DELETED(9),        // 廃止予定
+        DOMAIN_DELETED(10);      // 廃止
 
         private final int code;
 

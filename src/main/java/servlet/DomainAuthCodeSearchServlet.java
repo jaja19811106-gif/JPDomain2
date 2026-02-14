@@ -55,7 +55,14 @@ public class DomainAuthCodeSearchServlet extends HttpServlet {
                 return;
             }
             
-         // 認証コードが設定されている場合のみ有効期限を更新
+            // ステータスがDELETEDの場合はエラー
+            if (domain.getStatusEnum() == OrganizationDomain.Status.DELETED) {
+                req.setAttribute("errorMessage", "このドメインは削除済みのため、認証コードを発行できません。");
+                req.getRequestDispatcher("/domainAuthCodeSearch.jsp").forward(req, resp);
+                return;
+            }
+            
+            // 認証コードが設定されている場合のみ有効期限を更新
             if (domain.getAuthCode() != null && !domain.getAuthCode().isEmpty()) {
                 // 有効期限を35日後の23:59:59に更新
                 dao.updateAuthCodeExpiresAt(domain.getId());

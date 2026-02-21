@@ -14,31 +14,38 @@ public class OrganizationDomain {
 
     // ステータスEnum（内部クラス）
     public enum Status {
-        ACTIVE(1),
-        DELETED(2),
-        REGISTERED(3),           // 登録
-        RESERVED(4),             // 登録予約
-        PENDING_APPLICATION(5),  // 申請中
-        DOMAIN_ACTIVE(6),        // アクティブ（ドメイン）
-        TO_BE_SUSPENDED(7),      // サスペンド予定
-        SUSPENDED(8),            // サスペンド
-        TO_BE_DELETED(9),        // 廃止予定
-        DOMAIN_DELETED(10);      // 廃止
+        ACTIVE(1, "active"),
+        DELETED(2, "delete"),
+        REGISTERED(3, "REGISTERED"),           // 登録
+        RESERVED(4, "RESERVED"),             // 登録予約
+        PENDING_APPLICATION(5, "PENDING_APPLICATION"),  // 申請中
+        DOMAIN_ACTIVE(6, "DOMAIN_ACTIVE"),        // アクティブ(ドメイン)
+        TO_BE_SUSPENDED(7, "TO_BE_SUSPENDED"),      // サスペンド予定
+        SUSPENDED(8, "SUSPENDED"),            // サスペンド
+        TO_BE_DELETED(9, "TO_BE_DELETED"),        // 廃止予定
+        DOMAIN_DELETED(10, "DOMAIN_DELETED");      // 廃止
 
-        private final int code;
+        private final Integer code;
+        private final String label;
 
-        Status(int code) {
+        Status(Integer code, String label) {
             this.code = code;
+            this.label = label;
         }
 
-        public int getCode() {
+        public Integer getCode() {
             return code;
         }
 
-        public static Status fromCode(int code) {
-            for (Status s : values()) {
-                if (s.code == code) {
-                    return s;
+        public String getLabel() {
+            return label;
+        }
+
+        // code から Status を取得するメソッド
+        public static Status fromCode(Integer code) {
+            for (Status status : Status.values()) {
+                if (status.code == code) {
+                    return status;
                 }
             }
             throw new IllegalArgumentException("Invalid status code: " + code);

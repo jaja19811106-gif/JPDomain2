@@ -15,6 +15,10 @@
         <!-- ★ 認証コード照会 -->
         <li><a href="domainAuthCodeSearch">認証コード照会</a></li>
 
+        <!-- ★ コンタクト登録 -->
+        <li><a href="contactRegisterInput.jsp">コンタクト登録</a></li>
+		<li><a href="hostRegisterInput.jsp">ホスト登録</a></li>
+
         <li><a href="domainInfo">Domain Info</a></li>
         <li><a href="logout">ログアウト</a></li>
     </ul>

@@ -22,7 +22,8 @@
 
         <!-- ★ Transfer -->
         <li><a href="transferOutSearch">Transfer Out（Lock解除）</a></li>
-		<li><a href="transferInSearch">Transfer In（移管申請）</a></li>
+        <li><a href="transferInInput.jsp">Transfer In（移管申請）</a></li>
+
         <li><a href="domainInfo">Domain Info</a></li>
         <li><a href="logout">ログアウト</a></li>
     </ul>

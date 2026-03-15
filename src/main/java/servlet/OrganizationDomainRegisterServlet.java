@@ -36,6 +36,13 @@ public class OrganizationDomainRegisterServlet extends HttpServlet {
         domain.setAttributeType(attributeType);
         domain.setDomainName(domainName);
 
+        // ホストアドレスをセット
+        domain.setHost1(req.getParameter("host1"));
+        domain.setHost2(req.getParameter("host2"));
+        domain.setHost3(req.getParameter("host3"));
+        domain.setHost4(req.getParameter("host4"));
+        domain.setHost5(req.getParameter("host5"));
+
         // IPアドレス範囲をセット
         domain.setIp1From(req.getParameter("ip1_from")); domain.setIp1To(req.getParameter("ip1_to"));
         domain.setIp2From(req.getParameter("ip2_from")); domain.setIp2To(req.getParameter("ip2_to"));
@@ -45,16 +52,10 @@ public class OrganizationDomainRegisterServlet extends HttpServlet {
 
         OrganizationDomainDao dao = new OrganizationDomainDao();
         try {
-            // 登録
             int newId = dao.insert(domain);
-
-            // 登録したデータを取得（auth_code と status を含む）
             OrganizationDomain saved = dao.findById(newId);
-
-            // JSP に渡す
             req.setAttribute("domain", saved);
             req.getRequestDispatcher("/organizationDomainRegisterResult.jsp").forward(req, resp);
-
         } catch (SQLException e) {
             throw new ServletException(e);
         }

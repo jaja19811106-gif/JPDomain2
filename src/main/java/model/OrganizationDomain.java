@@ -19,6 +19,13 @@ public class OrganizationDomain {
     private String ip4From; private String ip4To;
     private String ip5From; private String ip5To;
 
+    // ホストアドレス1〜5
+    private String host1;
+    private String host2;
+    private String host3;
+    private String host4;
+    private String host5;
+
     // ステータスEnum（内部クラス）
     public enum Status {
         ACTIVE(1, "active"),
@@ -51,7 +58,6 @@ public class OrganizationDomain {
         }
     }
 
-    // Getters and Setters
     public int    getId()                          { return id; }
     public void   setId(int id)                    { this.id = id; }
 
@@ -87,4 +93,11 @@ public class OrganizationDomain {
     public String getIp4To()   { return ip4To; }   public void setIp4To(String v)   { this.ip4To   = v; }
     public String getIp5From() { return ip5From; } public void setIp5From(String v) { this.ip5From = v; }
     public String getIp5To()   { return ip5To; }   public void setIp5To(String v)   { this.ip5To   = v; }
+
+    // Host Getters and Setters
+    public String getHost1() { return host1; } public void setHost1(String v) { this.host1 = v; }
+    public String getHost2() { return host2; } public void setHost2(String v) { this.host2 = v; }
+    public String getHost3() { return host3; } public void setHost3(String v) { this.host3 = v; }
+    public String getHost4() { return host4; } public void setHost4(String v) { this.host4 = v; }
+    public String getHost5() { return host5; } public void setHost5(String v) { this.host5 = v; }
 }

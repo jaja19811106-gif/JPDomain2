@@ -46,17 +46,24 @@
 
         <br>
 
+        <h3>ホストアドレス</h3>
+        <table border="1" cellpadding="5">
+            <tr><th>No.</th><th>IPアドレス</th></tr>
+            <tr><td>1</td><td><input type="text" name="host1" value="${host1}" placeholder="例: 192.168.0.1" maxlength="15" size="18"></td></tr>
+            <tr><td>2</td><td><input type="text" name="host2" value="${host2}" placeholder="例: 192.168.0.1" maxlength="15" size="18"></td></tr>
+            <tr><td>3</td><td><input type="text" name="host3" value="${host3}" placeholder="例: 192.168.0.1" maxlength="15" size="18"></td></tr>
+            <tr><td>4</td><td><input type="text" name="host4" value="${host4}" placeholder="例: 192.168.0.1" maxlength="15" size="18"></td></tr>
+            <tr><td>5</td><td><input type="text" name="host5" value="${host5}" placeholder="例: 192.168.0.1" maxlength="15" size="18"></td></tr>
+        </table>
+
+        <br>
+
         <h3>ネットワークIPアドレス範囲（任意）</h3>
         <p style="color:#666; font-size:0.9em;">
             ※ FROM・TOはどちらか一方だけの入力はできません。両方入力するかどちらも空欄にしてください。
         </p>
-
         <table border="1" cellpadding="5">
-            <tr>
-                <th>No.</th>
-                <th>FROM</th>
-                <th>TO</th>
-            </tr>
+            <tr><th>No.</th><th>FROM</th><th>TO</th></tr>
             <tr>
                 <td>1</td>
                 <td><input type="text" name="ip1_from" value="${ip1_from}" placeholder="例: 192.168.0.1"   maxlength="15" size="18"></td>

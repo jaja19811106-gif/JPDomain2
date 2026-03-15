@@ -28,13 +28,18 @@ public class OrganizationDomainDao extends BaseDao {
         d.setIp3From(rs.getString("ip3_from")); d.setIp3To(rs.getString("ip3_to"));
         d.setIp4From(rs.getString("ip4_from")); d.setIp4To(rs.getString("ip4_to"));
         d.setIp5From(rs.getString("ip5_from")); d.setIp5To(rs.getString("ip5_to"));
+        d.setHost1(rs.getString("host1"));
+        d.setHost2(rs.getString("host2"));
+        d.setHost3(rs.getString("host3"));
+        d.setHost4(rs.getString("host4"));
+        d.setHost5(rs.getString("host5"));
         return d;
     }
 
-    // SELECT対象カラム
     private static final String SELECT_COLS =
         "id, corporate_number, domain_name, attribute_type, auth_code, auth_code_expires_at, status, " +
-        "ip1_from, ip1_to, ip2_from, ip2_to, ip3_from, ip3_to, ip4_from, ip4_to, ip5_from, ip5_to";
+        "ip1_from, ip1_to, ip2_from, ip2_to, ip3_from, ip3_to, ip4_from, ip4_to, ip5_from, ip5_to, " +
+        "host1, host2, host3, host4, host5";
 
     // ---------------------------------------------------------
     // 1組織1ドメインの制約チェック
@@ -63,10 +68,11 @@ public class OrganizationDomainDao extends BaseDao {
     private static final String SQL_INSERT =
         "INSERT INTO organization_domain " +
         "(corporate_number, domain_name, attribute_type, auth_code, auth_code_expires_at, status, " +
-        " ip1_from, ip1_to, ip2_from, ip2_to, ip3_from, ip3_to, ip4_from, ip4_to, ip5_from, ip5_to) " +
+        " ip1_from, ip1_to, ip2_from, ip2_to, ip3_from, ip3_to, ip4_from, ip4_to, ip5_from, ip5_to, " +
+        " host1, host2, host3, host4, host5) " +
         "VALUES (?, ?, ?, generate_auth_code(), " +
         "        (CURRENT_DATE + INTERVAL '35 days')::DATE + TIME '23:59:59', 1, " +
-        "        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+        "        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
         "RETURNING id";
 
     public int insert(OrganizationDomain domain) throws SQLException {
@@ -80,6 +86,11 @@ public class OrganizationDomainDao extends BaseDao {
             ps.setString(8,  nullIfBlank(domain.getIp3From())); ps.setString(9,  nullIfBlank(domain.getIp3To()));
             ps.setString(10, nullIfBlank(domain.getIp4From())); ps.setString(11, nullIfBlank(domain.getIp4To()));
             ps.setString(12, nullIfBlank(domain.getIp5From())); ps.setString(13, nullIfBlank(domain.getIp5To()));
+            ps.setString(14, domain.getHost1());
+            ps.setString(15, domain.getHost2());
+            ps.setString(16, domain.getHost3());
+            ps.setString(17, domain.getHost4());
+            ps.setString(18, domain.getHost5());
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) return rs.getInt("id");
             }
@@ -154,11 +165,13 @@ public class OrganizationDomainDao extends BaseDao {
     // UPDATE
     // ---------------------------------------------------------
     public void update(OrganizationDomain domain) throws SQLException {
-        String sql = "UPDATE organization_domain " +
+        String sql =
+            "UPDATE organization_domain " +
             "SET corporate_number=?, domain_name=?, attribute_type=?, " +
             "    auth_code=?, auth_code_expires_at=?, status=?, " +
             "    ip1_from=?, ip1_to=?, ip2_from=?, ip2_to=?, ip3_from=?, ip3_to=?, " +
-            "    ip4_from=?, ip4_to=?, ip5_from=?, ip5_to=? " +
+            "    ip4_from=?, ip4_to=?, ip5_from=?, ip5_to=?, " +
+            "    host1=?, host2=?, host3=?, host4=?, host5=? " +
             "WHERE id=?";
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -173,7 +186,12 @@ public class OrganizationDomainDao extends BaseDao {
             ps.setString(11, nullIfBlank(domain.getIp3From())); ps.setString(12, nullIfBlank(domain.getIp3To()));
             ps.setString(13, nullIfBlank(domain.getIp4From())); ps.setString(14, nullIfBlank(domain.getIp4To()));
             ps.setString(15, nullIfBlank(domain.getIp5From())); ps.setString(16, nullIfBlank(domain.getIp5To()));
-            ps.setInt(17, domain.getId());
+            ps.setString(17, domain.getHost1());
+            ps.setString(18, domain.getHost2());
+            ps.setString(19, domain.getHost3());
+            ps.setString(20, domain.getHost4());
+            ps.setString(21, domain.getHost5());
+            ps.setInt(22, domain.getId());
             ps.executeUpdate();
         }
     }
@@ -194,7 +212,8 @@ public class OrganizationDomainDao extends BaseDao {
     // 有効期限のみ更新
     // ---------------------------------------------------------
     public void updateAuthCodeExpiresAt(int id) throws SQLException {
-        String sql = "UPDATE organization_domain " +
+        String sql =
+            "UPDATE organization_domain " +
             "SET auth_code_expires_at = (CURRENT_DATE + INTERVAL '35 days')::DATE + TIME '23:59:59' " +
             "WHERE id = ?";
         try (Connection con = getConnection();
@@ -204,7 +223,6 @@ public class OrganizationDomainDao extends BaseDao {
         }
     }
 
-    // 空文字をnullに変換（任意項目をDBにNULLで保存するため）
     private String nullIfBlank(String s) {
         return (s == null || s.trim().isEmpty()) ? null : s.trim();
     }

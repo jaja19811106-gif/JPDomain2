@@ -125,45 +125,69 @@ public class DomainRegisterCheckServlet extends HttpServlet {
 
     /**
      * 重複チェック
-     * IPアドレス範囲FROM/TO同士・およびホストアドレスとの重複を検出する
+     * 以下の2種類のチェックを行う
+     * ① IPアドレス範囲FROM/TO同士・およびホストアドレスとの完全一致チェック
+     * ② ホストアドレスがIPアドレス範囲（FROM〜TO）に含まれるかチェック
      * ホストアドレス同士の重複チェックは対象外
-     * エラーメッセージにどのアドレスと重複しているかを表示する
      */
     private List<String> validateDuplicates(HttpServletRequest req) {
-        List<String>        errors = new ArrayList<>();
-        Map<String, String> seen   = new HashMap<>(); // IP → ラベル
+        List<String>        errors  = new ArrayList<>();
+        Map<String, String> seen    = new HashMap<>(); // IP → ラベル
 
-        // ホストアドレス1〜5をseenに登録（重複検出の比較対象として使用）
+        // ホストアドレス1〜5をseenに登録
         for (int i = 1; i <= 5; i++) {
             String host = req.getParameter("host" + i);
             if (!isBlank(host)) seen.put(host.trim(), "ホストアドレス" + i);
         }
 
-        // IPアドレス範囲FROM/TOをチェック（ホストアドレスまたは他のFROM/TOと重複していたらエラー）
+        // IPアドレス範囲FROM/TOをチェック
         for (int i = 1; i <= 5; i++) {
             String from = req.getParameter("ip" + i + "_from");
             String to   = req.getParameter("ip" + i + "_to");
-            if (!isBlank(from)) {
-                String f     = from.trim();
-                String label = "IPアドレス範囲" + i + " FROM";
-                if (seen.containsKey(f)) {
-                    errors.add(label + "の「" + f + "」は" + seen.get(f) + "と重複しています。");
-                } else {
-                    seen.put(f, label);
-                }
+            if (isBlank(from) || isBlank(to)) continue;
+
+            String f      = from.trim();
+            String t      = to.trim();
+            String rangeLabel = "IPアドレス範囲" + i;
+
+            // ① FROM/TOの完全一致チェック
+            if (seen.containsKey(f)) {
+                errors.add(rangeLabel + " FROMの「" + f + "」は" + seen.get(f) + "と重複しています。");
+            } else {
+                seen.put(f, rangeLabel + " FROM");
             }
-            if (!isBlank(to)) {
-                String t     = to.trim();
-                String label = "IPアドレス範囲" + i + " TO";
-                if (seen.containsKey(t)) {
-                    errors.add(label + "の「" + t + "」は" + seen.get(t) + "と重複しています。");
-                } else {
-                    seen.put(t, label);
+            if (seen.containsKey(t)) {
+                errors.add(rangeLabel + " TOの「" + t + "」は" + seen.get(t) + "と重複しています。");
+            } else {
+                seen.put(t, rangeLabel + " TO");
+            }
+
+            // ② ホストアドレスが範囲内に含まれるかチェック
+            InetAddress fromAddr = parseIpv4(f);
+            InetAddress toAddr   = parseIpv4(t);
+            for (int j = 1; j <= 5; j++) {
+                String host = req.getParameter("host" + j);
+                if (isBlank(host)) continue;
+                InetAddress hostAddr = parseIpv4(host.trim());
+                if (hostAddr == null) continue;
+                if (isInRange(hostAddr, fromAddr, toAddr)) {
+                    errors.add("ホストアドレス" + j + "の「" + host.trim() + "」は" + rangeLabel + "（" + f + "〜" + t + "）の範囲内に含まれています。");
                 }
             }
         }
 
         return errors;
+    }
+
+    /**
+     * IPアドレスが範囲内（FROM〜TO）に含まれるか判定
+     * @return true: 範囲内、false: 範囲外
+     */
+    private boolean isInRange(InetAddress target, InetAddress from, InetAddress to) {
+        int t = ByteBuffer.wrap(target.getAddress()).getInt();
+        int f = ByteBuffer.wrap(from.getAddress()).getInt();
+        int e = ByteBuffer.wrap(to.getAddress()).getInt();
+        return Integer.compareUnsigned(t, f) >= 0 && Integer.compareUnsigned(t, e) <= 0;
     }
 
     /**

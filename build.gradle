@@ -19,9 +19,11 @@ repositories {
 dependencies {
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 
-    testImplementation platform('org.junit:junit-bom:5.10.2')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // JUnit4
+    testImplementation 'junit:junit:4.13.2'
+
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:5.11.0'
 
     implementation 'javax.servlet:jstl:1.2'
     implementation 'org.slf4j:slf4j-api:2.0.9'
@@ -38,7 +40,7 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnit()
     systemProperty "log4jdbc.spylogdelegator.name", "net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator"
 }
 
@@ -75,28 +77,28 @@ ospackage {
     packageDescription = 'JPRS指定事業者向けドメイン管理システム'
     license         = 'Proprietary'
 
-// WARファイル → /opt/tomcat/webapps/
+    // WARファイル → /opt/tomcat/webapps/
     from(war.archiveFile) {
         into '/opt/tomcat/webapps'
-        // fileMode 0644  <-- ここも古い書き方です
         filePermissions {
             unix(0644)
         }
     }
+
     // 起動スクリプト → /opt/tomcat/bin/
     from('scripts/start.sh') {
         into '/opt/tomcat/bin'
-	filePermissions {
-	        unix(0755) // ← こう書き換える
-	    }
+        filePermissions {
+            unix(0755)
+        }
     }
 
     // 設定ファイル → /etc/JPDomain2/
     from('src/main/resources/logback.xml') {
         into '/etc/JPDomain2'
-	filePermissions {
-	        unix(0644) // ← こう書き換える
-	    }    
+        filePermissions {
+            unix(0644)
+        }
     }
 }
 

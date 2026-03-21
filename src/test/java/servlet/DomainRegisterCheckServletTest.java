@@ -1,15 +1,21 @@
 package servlet;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.MockedConstruction;
+
+import dao.OrganizationDomainDao;
 
 /**
  * DomainRegisterCheckServlet バリデーションテスト
@@ -18,11 +24,103 @@ public class DomainRegisterCheckServletTest {
 
     private DomainRegisterCheckServlet servlet;
     private HttpServletRequest         mockReq;
+    private HttpServletResponse        mockResp;
+    private RequestDispatcher          mockDispatcher;
 
     @Before
     public void setUp() {
-        servlet = new DomainRegisterCheckServlet();
-        mockReq = mock(HttpServletRequest.class);
+        servlet        = new DomainRegisterCheckServlet();
+        mockReq        = mock(HttpServletRequest.class);
+        mockResp       = mock(HttpServletResponse.class);
+        mockDispatcher = mock(RequestDispatcher.class);
+    }
+
+    // ============================================================
+    // doPost テスト
+    // ============================================================
+
+    /**
+     * バリデーションエラーあり → 入力画面にforward
+     */
+    @Test
+    public void testDoPost_バリデーションエラー_入力画面へforward() throws Exception {
+        // ホストアドレスが不正形式
+        when(mockReq.getParameter("host1")).thenReturn("abc");
+        when(mockReq.getParameter("host2")).thenReturn("");
+        when(mockReq.getParameter("host3")).thenReturn("");
+        when(mockReq.getParameter("host4")).thenReturn("");
+        when(mockReq.getParameter("host5")).thenReturn("");
+        for (int i = 1; i <= 5; i++) {
+            when(mockReq.getParameter("ip" + i + "_from")).thenReturn("");
+            when(mockReq.getParameter("ip" + i + "_to")).thenReturn("");
+        }
+        when(mockReq.getParameter("corporateNumber")).thenReturn("1234567890123");
+        when(mockReq.getParameter("attributeType")).thenReturn("co.jp");
+        when(mockReq.getParameter("domainName")).thenReturn("example.co.jp");
+        when(mockReq.getRequestDispatcher("/domainRegisterInput.jsp")).thenReturn(mockDispatcher);
+
+        try (MockedConstruction<OrganizationDomainDao> mocked =
+                mockConstruction(OrganizationDomainDao.class, (mock, context) -> {
+                    when(mock.existsActiveDomainForOrg(anyString(), anyString())).thenReturn(false);
+                })) {
+            servlet.doPost(mockReq, mockResp);
+        }
+
+        verify(mockDispatcher).forward(mockReq, mockResp);
+    }
+
+    /**
+     * バリデーションOK・既存ドメインなし → 確認画面にforward
+     */
+    @Test
+    public void testDoPost_バリデーションOK_確認画面へforward() throws Exception {
+        for (int i = 1; i <= 5; i++) {
+            when(mockReq.getParameter("host" + i)).thenReturn("");
+        }
+        for (int i = 1; i <= 5; i++) {
+            when(mockReq.getParameter("ip" + i + "_from")).thenReturn("");
+            when(mockReq.getParameter("ip" + i + "_to")).thenReturn("");
+        }
+        when(mockReq.getParameter("corporateNumber")).thenReturn("1234567890123");
+        when(mockReq.getParameter("attributeType")).thenReturn("co.jp");
+        when(mockReq.getParameter("domainName")).thenReturn("example.co.jp");
+        when(mockReq.getRequestDispatcher("/domainRegisterConfirm.jsp")).thenReturn(mockDispatcher);
+
+        try (MockedConstruction<OrganizationDomainDao> mocked =
+                mockConstruction(OrganizationDomainDao.class, (mock, context) -> {
+                    when(mock.existsActiveDomainForOrg(anyString(), anyString())).thenReturn(false);
+                })) {
+            servlet.doPost(mockReq, mockResp);
+        }
+
+        verify(mockDispatcher).forward(mockReq, mockResp);
+    }
+
+    /**
+     * バリデーションOK・既存ドメインあり → 入力画面にforward
+     */
+    @Test
+    public void testDoPost_既存ドメインあり_入力画面へforward() throws Exception {
+        for (int i = 1; i <= 5; i++) {
+            when(mockReq.getParameter("host" + i)).thenReturn("");
+        }
+        for (int i = 1; i <= 5; i++) {
+            when(mockReq.getParameter("ip" + i + "_from")).thenReturn("");
+            when(mockReq.getParameter("ip" + i + "_to")).thenReturn("");
+        }
+        when(mockReq.getParameter("corporateNumber")).thenReturn("1234567890123");
+        when(mockReq.getParameter("attributeType")).thenReturn("co.jp");
+        when(mockReq.getParameter("domainName")).thenReturn("example.co.jp");
+        when(mockReq.getRequestDispatcher("/domainRegisterInput.jsp")).thenReturn(mockDispatcher);
+
+        try (MockedConstruction<OrganizationDomainDao> mocked =
+                mockConstruction(OrganizationDomainDao.class, (mock, context) -> {
+                    when(mock.existsActiveDomainForOrg(anyString(), anyString())).thenReturn(true);
+                })) {
+            servlet.doPost(mockReq, mockResp);
+        }
+
+        verify(mockDispatcher).forward(mockReq, mockResp);
     }
 
     // ============================================================

@@ -1,12 +1,12 @@
 package selenium;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import java.time.Duration;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,22 +18,22 @@ public class LoginPageTest {
 
     private WebDriver driver;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() {
         if (driver != null) {
-           //  driver.quit();
+            // driver.quit();
         }
     }
 
     @Test
-    void testLogin() {
+    public void testLogin() {
 
         driver.get("http://localhost:8080/JPDomain2/login");
 

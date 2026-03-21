@@ -1,14 +1,14 @@
 package selenium;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -23,8 +23,8 @@ public class MenuPageTest {
 
     private WebDriver driver;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
 
         // ★ パスワードマネージャー完全無効化
@@ -48,19 +48,17 @@ public class MenuPageTest {
         driver = new ChromeDriver(options);
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() {
         // ★ quit() を呼ばないことでブラウザが閉じない
         // driver.quit();
     }
 
     @Test
-    void testMenuPageTitle() {
+    public void testMenuPageTitle() {
 
-        // ログイン画面へ
         driver.get("http://localhost:8080/JPDomain2/login");
 
-        // ログイン処理
         LoginPage login = new LoginPage(driver);
         MenuPage menu = login
                 .setProviderNo("001")
@@ -68,20 +66,17 @@ public class MenuPageTest {
                 .setPassword("pass")
                 .clickLogin();
 
-        // タイトルが表示されるまで待機
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.titleIs("メニュー"));
 
-        // タイトル確認
         assertEquals("メニュー", menu.getTitle());
     }
-    
+
     @Test
-    void testClickHome() {
+    public void testClickHome() {
 
         driver.get("http://localhost:8080/JPDomain2/login");
 
-        // ログイン
         LoginPage login = new LoginPage(driver);
         MenuPage menu = login
                 .setProviderNo("001")
@@ -89,19 +84,16 @@ public class MenuPageTest {
                 .setPassword("pass")
                 .clickLogin();
 
-        // ホームリンクをクリック
         menu.clickHome();
 
-        // タイトルが変わらないことを確認
         assertEquals("メニュー", menu.getTitle());
     }
-    
+
     @Test
-    void testClickDomainRegister() {
+    public void testClickDomainRegister() {
 
         driver.get("http://localhost:8080/JPDomain2/login");
 
-        // ログイン
         LoginPage login = new LoginPage(driver);
         MenuPage menu = login
                 .setProviderNo("001")
@@ -109,15 +101,13 @@ public class MenuPageTest {
                 .setPassword("pass")
                 .clickLogin();
 
-        // ドメイン登録リンクをクリック
         menu.clickDomainRegister();
 
-        // 遷移先のタイトルを確認（domainRegister.jsp の <title> に合わせる）
         assertEquals("ドメイン登録", driver.getTitle());
     }
-    
+
     @Test
-    void testDomainRegister() {
+    public void testDomainRegister() {
         driver.get("http://localhost:8080/JPDomain2/login");
 
         MenuPage menu = new LoginPage(driver)
@@ -129,10 +119,10 @@ public class MenuPageTest {
         menu.clickDomainRegister();
 
         DomainRegisterPage register = new DomainRegisterPage(driver);
-    	System.out.println(
-    		    "Delegator = " +
-    		    net.sf.log4jdbc.log.SpyLogFactory.getSpyLogDelegator().getClass().getName()
-    		);
+        System.out.println(
+            "Delegator = " +
+            net.sf.log4jdbc.log.SpyLogFactory.getSpyLogDelegator().getClass().getName()
+        );
         register.setDomainName("example.jp")
                 .setRegistrant("山田太郎")
                 .selectPeriod("1")
@@ -140,7 +130,6 @@ public class MenuPageTest {
                 .setNs2("ns2.example.jp")
                 .clickRegister();
 
-        // 遷移先のタイトルを確認（domainRegisterResult.jsp の <title> に合わせる）
         assertEquals("登録結果", driver.getTitle());
     }
 }

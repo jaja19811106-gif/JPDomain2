@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'war'
     id 'com.netflix.nebula.ospackage' version '11.6.0'
+    id 'jacoco'
 }
 
 java {
@@ -18,6 +19,7 @@ repositories {
 
 dependencies {
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation 'javax.servlet:javax.servlet-api:4.0.1'
 
     // JUnit4
     testImplementation 'junit:junit:4.13.2'
@@ -42,6 +44,18 @@ dependencies {
 test {
     useJUnit()
     systemProperty "log4jdbc.spylogdelegator.name", "net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator"
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+        html.outputLocation = layout.buildDirectory.dir('reports/jacoco/test/html')
+    }
+    // ソースファイルの文字コードをUTF-8に指定
+    sourceEncoding = 'UTF-8'
 }
 
 sourceSets {
@@ -56,6 +70,14 @@ sourceSets {
             srcDir 'src/test/resources'
         }
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Test) {
+    jvmArgs "-Dfile.encoding=UTF-8"
 }
 
 tasks.processResources {

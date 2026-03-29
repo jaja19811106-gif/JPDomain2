@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,35 +17,76 @@ import model.ProviderAccount;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
+    private static final String CSRF_TOKEN_KEY = "csrfToken";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        // キャッシュ無効化
+        response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+
+        // CSRFトークン生成 → Sessionに保存 → requestにセット
+        String token = generateCsrfToken();
+        HttpSession session = request.getSession(true);
+        session.setAttribute(CSRF_TOKEN_KEY, token);
+        request.setAttribute(CSRF_TOKEN_KEY, token);
+
+        request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
 
+        // CSRFトークン検証
+        HttpSession session  = request.getSession(true);
+        String sessionToken  = (String) session.getAttribute(CSRF_TOKEN_KEY);
+        String requestToken  = request.getParameter(CSRF_TOKEN_KEY);
+
+        if (sessionToken == null || !sessionToken.equals(requestToken)) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN, "不正なリクエストです。");
+            return;
+        }
+
+        // トークン使い捨て（検証後は即削除）
+        session.removeAttribute(CSRF_TOKEN_KEY);
+
         String providerNo = request.getParameter("providerNo");
-        String loginId = request.getParameter("userId");
-        String password = request.getParameter("password");
+        String loginId    = request.getParameter("userId");
+        String password   = request.getParameter("password");
 
-        ProviderAccountDao dao = new ProviderAccountDao();
-        ProviderAccount account = dao.findByLogin(providerNo, loginId, password);
+        ProviderAccountDao dao     = new ProviderAccountDao();
+        ProviderAccount    account = dao.findByLogin(providerNo, loginId, password);
 
-        
         if (account != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("provider", account);
-            
-            response.sendRedirect("menu.jsp");
+            // セッション固定化攻撃対策：Sessionを再生成
+            session.invalidate();
+            HttpSession newSession = request.getSession(true);
+            newSession.setAttribute("provider", account);
+            response.sendRedirect(request.getContextPath() + "/menu.jsp");
         } else {
             request.setAttribute("error", "ログイン情報が正しくありません");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+            // 再表示用に新しいトークンを生成
+            String newToken = generateCsrfToken();
+            request.getSession(true).setAttribute(CSRF_TOKEN_KEY, newToken);
+            request.setAttribute(CSRF_TOKEN_KEY, newToken);
+
+            request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
         }
+    }
+
+    /**
+     * CSRFトークン生成
+     * SecureRandomで32バイトのランダム値を生成しBase64エンコード
+     */
+    private String generateCsrfToken() {
+        byte[] bytes = new byte[32];
+        new SecureRandom().nextBytes(bytes);
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
     }
 }

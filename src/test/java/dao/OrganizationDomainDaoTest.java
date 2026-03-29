@@ -1,13 +1,16 @@
 package dao;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.MockedStatic;
 
 import model.OrganizationDomain;
 
@@ -72,6 +75,39 @@ public class OrganizationDomainDaoTest {
     @Test
     public void testFindById_存在しないID_nullを返す() throws Exception {
         OrganizationDomain result = dao.findById(-1);
+        assertNull(result);
+    }
+
+    // ============================================================
+    // findById SQLException テスト
+    // ============================================================
+
+    @Test(expected = RuntimeException.class)
+    public void testFindById_SQLException_RuntimeExceptionをスロー() throws Exception {
+        // 存在しないポートに接続してSQLExceptionを発生させる
+        try (MockedStatic<DBManager> mockedStatic = mockStatic(DBManager.class)) {
+            mockedStatic.when(DBManager::getConnection)
+                        .thenThrow(new SQLException("DB接続エラー"));
+            dao.findById(testId);
+        }
+    }
+
+    // ============================================================
+    // findByIdForUpdate テスト
+    // ============================================================
+
+    @Test
+    public void testFindByIdForUpdate_存在するID_取得できる() throws Exception {
+        OrganizationDomain result = dao.findByIdForUpdate(testId);
+        assertNotNull(result);
+        assertEquals(testId, result.getId());
+        assertEquals("9999999999999", result.getCorporateNumber());
+        assertEquals("test.co.jp", result.getDomainName());
+    }
+
+    @Test
+    public void testFindByIdForUpdate_存在しないID_nullを返す() throws Exception {
+        OrganizationDomain result = dao.findByIdForUpdate(-1);
         assertNull(result);
     }
 

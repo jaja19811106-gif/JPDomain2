@@ -115,7 +115,7 @@ public class DomainRegisterCheckServlet extends HttpServlet {
                     errors.add("IPアドレス範囲" + i + "：TO「" + to + "」はIPv4形式ではありません。");
                     continue;
                 }
-                if (isFromGreaterThanTo(fromAddr, toAddr)) {
+                if (!isValidIpRange(fromAddr, toAddr)) {
                     errors.add("IPアドレス範囲" + i + "：FROMはTOより小さい値を入力してください。");
                 }
             }
@@ -197,22 +197,29 @@ public class DomainRegisterCheckServlet extends HttpServlet {
         if (isBlank(ip)) return null;
         if (!ip.matches("^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$")) return null;
         try {
-            return InetAddress.getByName(ip);
-        } catch (UnknownHostException e) {
+            String[] parts = ip.trim().split("\\.");
+            byte[] bytes = new byte[4];
+            for (int i = 0; i < 4; i++) {
+                int val = Integer.parseInt(parts[i]);
+                if (val < 0 || val > 255) return null;
+                bytes[i] = (byte) val;
+            }
+            return InetAddress.getByAddress(bytes);
+        } catch (UnknownHostException | NumberFormatException e) {
             return null;
         }
     }
 
     /**
-     * FROMがTOより大きいか判定（逆転チェック）
+     * IPアドレス範囲の順序チェック（FROM <= TO）
      * ByteBufferでIPv4アドレスを32bit整数に変換して比較
-     * @return true: FROM > TO（逆転している）、false: FROM <= TO（正常）
+     * @return true: FROM <= TO（正常）、false: FROM > TO（逆転している）
      */
-    private boolean isFromGreaterThanTo(InetAddress from, InetAddress to) {
+    private boolean isValidIpRange(InetAddress from, InetAddress to) {
         return Integer.compareUnsigned(
             ByteBuffer.wrap(from.getAddress()).getInt(),
             ByteBuffer.wrap(to.getAddress()).getInt()
-        ) > 0;
+        ) <= 0;
     }
 
     /**

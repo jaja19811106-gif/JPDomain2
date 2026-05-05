@@ -44,6 +44,7 @@
 
         <div style="background-color:#f5f5f5; padding:20px; border-radius:5px; margin-bottom:20px;">
             <form method="post" action="contactRegisterConfirm">
+                <input type="hidden" name="aaa" value="">
 
                 <table border="1" cellpadding="5">
                     <tr>

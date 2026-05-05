@@ -52,6 +52,7 @@
             <input type="hidden" name="voice"         value="<%= form.getVoice() %>">
             <input type="hidden" name="fax"           value="<%= form.getFax() %>">
             <input type="hidden" name="email"         value="<%= form.getEmail() %>">
+            <input type="hidden" name="aaa"           value="">
 
             <button type="submit" style="padding:5px 15px;">登録</button>
             <button type="button" style="padding:5px 15px; margin-left:10px;" onclick="history.back()">戻る</button>

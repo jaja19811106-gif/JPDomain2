@@ -33,6 +33,10 @@ public class LoginServlet extends HttpServlet {
         session.setAttribute(CSRF_TOKEN_KEY, token);
         request.setAttribute(CSRF_TOKEN_KEY, token);
 
+        System.out.println("=== doGet ===");
+        System.out.println("SessionID: " + session.getId());
+        System.out.println("生成トークン: " + token);
+
         request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
     }
 
@@ -42,17 +46,9 @@ public class LoginServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        // CSRFトークン検証
-        HttpSession session  = request.getSession(true);
-        String sessionToken  = (String) session.getAttribute(CSRF_TOKEN_KEY);
-        String requestToken  = request.getParameter(CSRF_TOKEN_KEY);
-
-        if (sessionToken == null || !sessionToken.equals(requestToken)) {
-            response.sendError(HttpServletResponse.SC_FORBIDDEN, "不正なリクエストです。");
-            return;
-        }
-
+        // CSRFチェックはCsrfFilterで実施済み
         // トークン使い捨て（検証後は即削除）
+        HttpSession session = request.getSession(true);
         session.removeAttribute(CSRF_TOKEN_KEY);
 
         String providerNo = request.getParameter("providerNo");

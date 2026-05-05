@@ -85,8 +85,8 @@ public class OrganizationDomainDaoTest {
     @Test(expected = RuntimeException.class)
     public void testFindById_SQLException_RuntimeExceptionをスロー() throws Exception {
         // 存在しないポートに接続してSQLExceptionを発生させる
-        try (MockedStatic<DBManager> mockedStatic = mockStatic(DBManager.class)) {
-            mockedStatic.when(DBManager::getConnection)
+        try (MockedStatic<DBManagerTest> mockedStatic = mockStatic(DBManagerTest.class)) {
+            mockedStatic.when(DBManagerTest::getConnection)
                         .thenThrow(new SQLException("DB接続エラー"));
             dao.findById(testId);
         }
@@ -230,7 +230,7 @@ public class OrganizationDomainDaoTest {
 
     private void deleteTestData(int id) throws Exception {
         String sql = "DELETE FROM organization_domain WHERE id = ?";
-        try (Connection con = DBManager.getConnection();
+        try (Connection con = DBManagerTest.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();

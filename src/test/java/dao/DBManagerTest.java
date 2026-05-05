@@ -8,7 +8,7 @@ import java.sql.SQLException;
  * テスト用DBManager（JDBC直接接続）
  * src/test/java/dao/ に配置することでテスト時のみ使用される
  */
-public class DBManager {
+public class DBManagerTest {
 
     private static final String URL      = "jdbc:postgresql://localhost:5432/testdb";
     private static final String USER     = "postgres";

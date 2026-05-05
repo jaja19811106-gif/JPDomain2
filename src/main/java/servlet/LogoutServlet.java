@@ -11,15 +11,17 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
         if (session != null) {
-            session.invalidate();  // ★ セッション破棄
+            session.invalidate(); // セッション破棄
         }
 
-        response.sendRedirect("login.jsp");  // ★ ログイン画面へ戻す
+        // login.jspが WEB-INF/jsp/ 配下のためServlet経由でリダイレクト
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }

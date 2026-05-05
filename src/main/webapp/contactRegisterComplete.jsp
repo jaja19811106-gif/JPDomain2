@@ -29,6 +29,7 @@
                 <tr><th>氏名</th>          <td><%= form.getName() %></td></tr>
                 <tr><th>メールアドレス</th><td><%= form.getEmail() %></td></tr>
             </table>
+            <input type="hidden" name="aaa" value="">
         </div>
 
         <button type="button" style="padding:5px 15px;" onclick="location.href='contactRegisterInput.jsp'">続けて登録</button>

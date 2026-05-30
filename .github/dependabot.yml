@@ -4,5 +4,5 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    # 👇 この1行（open-requests-limit）を追加する
-    open-requests-limit: 10
+    # 👇「pull」が抜けていました。こちらが正しい項目名です
+    open-pull-requests-limit: 10

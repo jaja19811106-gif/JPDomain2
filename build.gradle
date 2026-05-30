@@ -3,6 +3,8 @@ plugins {
     id 'war'
     id 'com.netflix.nebula.ospackage' version '11.6.0'
     id 'jacoco'
+    id 'pmd'
+    id 'com.github.spotbugs' version '6.0.9'
 }
 
 java {
@@ -39,6 +41,12 @@ dependencies {
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.38.0'
 
     implementation 'org.postgresql:postgresql:42.7.3'
+
+    // SpotBugs アノテーション（オプション）
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.8.6'
+    
+    // Find Security Bugs プラグイン
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
 }
 
 test {
@@ -53,9 +61,52 @@ jacocoTestReport {
         xml.required = true
         html.required = true
         html.outputLocation = layout.buildDirectory.dir('reports/jacoco/test/html')
-    }
+    }	
     // ソースファイルの文字コードをUTF-8に指定
     sourceEncoding = 'UTF-8'
+}
+
+// ============================================================
+// PMD 設定
+// ============================================================
+pmd {
+    toolVersion = '7.3.0'
+    consoleOutput = true
+    // ビルドを失敗させたくない場合は false に変更
+    ignoreFailures = false
+    rulesMinimumPriority = 3
+    ruleSets = [
+    'category/java/security.xml',
+//    'category/java/errorprone.xml',   // NullPointer・リソースリーク系
+//    'category/java/multithreading.xml' // スレッドセーフ系
+    ]
+}
+
+tasks.withType(Pmd).configureEach {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+// ============================================================
+// SpotBugs 設定
+// ============================================================
+spotbugs {
+    toolVersion = '4.8.3'
+    ignoreFailures = false
+    showProgress = true
+        // Groovy + Gradle 7.x では valueOf() を使う
+    effort = com.github.spotbugs.snom.Effort.valueOf('DEFAULT')
+    reportLevel = com.github.spotbugs.snom.Confidence.valueOf('DEFAULT')
+}
+
+tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
+    reports {
+        xml.required = true
+        html.required = true
+        html.stylesheet = 'fancy-hist.xsl'
+    }
 }
 
 sourceSets {

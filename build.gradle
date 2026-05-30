@@ -4,7 +4,7 @@ plugins {
     id 'com.netflix.nebula.ospackage' version '11.6.0'
     id 'jacoco'
     id 'pmd'
-    id 'com.github.spotbugs' version '6.0.9'
+    id 'com.github.spotbugs' version '6.5.5'
 }
 
 java {

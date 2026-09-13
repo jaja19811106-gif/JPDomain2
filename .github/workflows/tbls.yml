@@ -47,7 +47,7 @@ jobs:
       - name: Run tbls doc
         run: tbls doc
         env:
-          # PostgreSQL 用の DSN を指定（ユーザー名を postgres に統一）
+          # PostgreSQL 用の DSN を指定
           TBLS_DSN: "postgres://postgres:mypassword@localhost:5432/mydb?sslmode=disable"
 
       # 6. 差分があればプルリクエストを作成

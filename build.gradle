@@ -4,7 +4,7 @@ plugins {
     id 'com.netflix.nebula.ospackage' version '11.6.0'
     id 'jacoco'
     id 'pmd'
-    id 'com.github.spotbugs' version '6.0.9'
+    id 'com.github.spotbugs' version '6.5.5'
 }
 
 java {
@@ -27,23 +27,23 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 
     // Mockito
-    testImplementation 'org.mockito:mockito-core:5.11.0'
+    testImplementation 'org.mockito:mockito-core:5.23.0'
 
     implementation 'javax.servlet:jstl:1.2'
-    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-api:2.0.18'
     implementation 'ch.qos.logback:logback-classic:1.4.11'
 
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 
-    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.26.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.26.0'
 
-    testImplementation 'org.seleniumhq.selenium:selenium-java:4.38.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.44.0'
 
     implementation 'org.postgresql:postgresql:42.7.3'
 
     // SpotBugs アノテーション（オプション）
-    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.8.6'
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.9.8'
     
     // Find Security Bugs プラグイン
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'

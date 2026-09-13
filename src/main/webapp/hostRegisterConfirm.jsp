@@ -23,6 +23,7 @@
                 <tr><th>IPv4アドレス</th>    <td><%= form.getIpv4() != null ? form.getIpv4() : "" %></td></tr>
                 <tr><th>IPv6アドレス</th>    <td><%= form.getIpv6() != null ? form.getIpv6() : "" %></td></tr>
             </table>
++            <input type="hidden" name="aaa" value="">
         </div>
 
         <form method="post" action="hostRegisterExecute">

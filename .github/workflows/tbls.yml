@@ -1,0 +1,62 @@
+name: tbls doc generation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'schema.sql'      # スキーマファイルの配置場所に合わせて変更
+      - '.tbls.yml'
+
+jobs:
+  tbls:
+    runs-on: ubuntu-latest
+
+    # 1. PostgreSQL サービスコンテナを定義
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: mypassword
+          POSTGRES_DB: mydb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      # 2. リポジトリのチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 3. PostgreSQL に DDL (schema.sql) を投入
+      - name: Initialize PostgreSQL Schema
+        run: |
+          PGPASSWORD=mypassword psql -h localhost -U myuser -d mydb -f schema.sql
+
+      # 4. tbls のセットアップ
+      - name: Setup tbls
+        uses: k1LoW/setup-tbls-action@v1
+
+      # 5. tbls doc の実行
+      - name: Run tbls doc
+        run: tbls doc
+        env:
+          # PostgreSQL 用の DSN を指定
+          TBLS_DSN: "postgres://myuser:mypassword@localhost:5432/mydb?sslmode=disable"
+
+      # 6. 差分があればプルリクエストを作成
+      - name: Create Pull Request on Changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: update DB documentation by tbls"
+          title: "docs: tbls によるDBドキュメントの自動更新"
+          body: "PostgreSQLのスキーマ変更に伴い、ER図およびドキュメントを更新しました。"
+          branch: "auto-update/tbls-doc"
+          delete-branch: true

@@ -37,7 +37,7 @@ jobs:
       # 3. PostgreSQL に DDL (schema.sql) を投入
       - name: Initialize PostgreSQL Schema
         run: |
-          PGPASSWORD=mypassword psql -h localhost -U myuser -d mydb -f schema.sql
+          PGPASSWORD=mypassword psql -h localhost -U postgres -d mydb -f schema.sql
 
       # 4. tbls のセットアップ
       - name: Setup tbls
@@ -47,8 +47,8 @@ jobs:
       - name: Run tbls doc
         run: tbls doc
         env:
-          # PostgreSQL 用の DSN を指定
-          TBLS_DSN: "postgres://myuser:mypassword@localhost:5432/mydb?sslmode=disable"
+          # PostgreSQL 用の DSN を指定（ユーザー名を postgres に統一）
+          TBLS_DSN: "postgres://postgres:mypassword@localhost:5432/mydb?sslmode=disable"
 
       # 6. 差分があればプルリクエストを作成
       - name: Create Pull Request on Changes
